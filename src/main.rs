@@ -16,15 +16,24 @@ fn main() -> ! {
     let clocks = rcc.cfgr.sysclk(48.mhz()).freeze();
     
     let gpiod = dp.GPIOD.split();
-    let mut led = gpiod.pd15.into_push_pull_output();
+    let mut led_blue = gpiod.pd15.into_push_pull_output();
+    let mut led_red = gpiod.pd14.into_push_pull_output();
+    let mut led_orange = gpiod.pd13.into_push_pull_output();
+    let mut led_green = gpiod.pd12.into_push_pull_output();
 
     let mut delay = Delay::new(cp.SYST, clocks);
 
     for _ in 0..5 {
-      led.set_high().unwrap();
+      led_blue.set_high().unwrap();
+      led_red.set_high().unwrap();
+      led_orange.set_high().unwrap();
+      led_green.set_high().unwrap();
       delay.delay_ms(100_u32);
 
-      led.set_low().unwrap();
+      led_blue.set_low().unwrap();
+      led_red.set_low().unwrap();
+      led_orange.set_low().unwrap();
+      led_green.set_low().unwrap();
       delay.delay_ms(100_u32);
     }
   }
