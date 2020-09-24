@@ -28,13 +28,13 @@ fn main() -> ! {
       led_red.set_high().unwrap();
       led_orange.set_high().unwrap();
       led_green.set_high().unwrap();
-      delay.delay_ms(100_u32);
+      delay.delay_ms(1000_u32);
 
       led_blue.set_low().unwrap();
       led_red.set_low().unwrap();
       led_orange.set_low().unwrap();
       led_green.set_low().unwrap();
-      delay.delay_ms(100_u32);
+      delay.delay_ms(1000_u32);
     }
   }
 
